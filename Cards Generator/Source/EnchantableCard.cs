@@ -21,5 +21,5 @@ namespace Cards_Generator.Source
 
         public eCardRarity Rarity;
 
-    }
+    } 
 }
