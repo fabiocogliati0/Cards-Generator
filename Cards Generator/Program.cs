@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cards_Generator.Source;
+using Cards_Generator.Core;
 
 namespace Cards_Generator
 {
@@ -16,7 +18,14 @@ namespace Cards_Generator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
+
+            Name name1 = new Name();
+
+#if DEBUG
+            string namestr = name1.GetString();
+#endif
+
         }
     }
 }
