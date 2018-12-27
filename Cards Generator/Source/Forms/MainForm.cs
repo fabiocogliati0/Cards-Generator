@@ -16,5 +16,6 @@ namespace Cards_Generator
         {
             InitializeComponent();
         }
+
     }
 }

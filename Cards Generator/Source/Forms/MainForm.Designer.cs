@@ -40,13 +40,13 @@
             this.listBox1.Size = new System.Drawing.Size(473, 308);
             this.listBox1.TabIndex = 0;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 419);
             this.Controls.Add(this.listBox1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Cards Generator";
             this.ResumeLayout(false);
 

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cards_Generator.Source;
 using Cards_Generator.Core;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Cards_Generator
 {
@@ -22,9 +24,25 @@ namespace Cards_Generator
 
             Name name1 = new Name();
 
-#if DEBUG
-            string namestr = name1.GetString();
-#endif
+            string connectionString = ("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = \"C:\\Users\\Fabio\\Desktop\\Cards Generator\\Cards Generator\\Resources\\DB\\DB.mdf\"; Integrated Security = True");
+            SqlConnection connection = new SqlConnection(connectionString);
+                
+            
+            string queryString = "SELECT Name FROM EnchantmentsTable";
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = queryString;
+
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while(reader.Read())
+            {
+                string name = reader["Name"].ToString();
+
+                int a = 3;
+            }
+
 
         }
     }
