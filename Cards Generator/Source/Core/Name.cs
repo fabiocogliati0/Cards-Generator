@@ -1,6 +1,6 @@
 ﻿//@Author Fabio Cogliati
 
-namespace Cards_Generator.Core
+namespace Cards_Generator
 {
     /// <summary>
     /// Name class that contains the hash of the desired string. It keeps the source string only in debug builds

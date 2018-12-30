@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cards_Generator.Source
+namespace Cards_Generator
 {
     class Enchantment
     {
-        public Enchantment()
-        {
-            Rarity = eCardRarity.Magic;
-        }
+        public int i;
 
-        public eCardRarity Rarity { get; }
+        public int a;
     }
 }
