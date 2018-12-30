@@ -7,18 +7,12 @@ namespace Cards_Generator
     /// <summary>
     /// Name class that contains the hash of the desired string. It keeps the source string only in debug builds
     /// </summary>
+    [DebuggerDisplay("{_infoString}")]
     class Name
     {
 
-#if DEBUG
-        [DebuggerDisplay("String = {_string} - Hash = {_hash}")]
-#else
-        [DebuggerDisplay("Hash = {_hash}")]
-#endif
-
-
         /// <summary> Empty name </summary>
-        public static Name NAME_NONE;
+        public static Name NAME_NONE = new Name();
 
 
         /// <summary>
@@ -116,6 +110,14 @@ namespace Cards_Generator
             return _hash;
         }
 
+        /// <summary>
+        /// Returns information about the name. Useful for debug purposes only
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return _infoString;
+        }
 
         /// <summary>
         /// Set name by string
@@ -149,6 +151,18 @@ namespace Cards_Generator
         /// <summary> Current name string </summary>
         private string _string;
 #endif
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private string _infoString
+        {
+            get
+            {
+#if DEBUG
+                return "{ NAME : " + _string + " | " + _hash.ToString() + " }";
+#else
+                return "{ NAME : " + _hash.ToString() + " }";
+#endif
+            }
+        }
 
     }
 
