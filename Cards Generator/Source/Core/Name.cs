@@ -1,5 +1,7 @@
 ﻿//@Author Fabio Cogliati
 
+using System.Diagnostics;
+
 namespace Cards_Generator
 {
     /// <summary>
@@ -7,6 +9,13 @@ namespace Cards_Generator
     /// </summary>
     class Name
     {
+
+#if DEBUG
+        [DebuggerDisplay("String = {_string} - Hash = {_hash}")]
+#else
+        [DebuggerDisplay(Hash = {_hash}")]
+#endif
+
 
         /// <summary> Empty name </summary>
         public static Name NAME_NONE;
