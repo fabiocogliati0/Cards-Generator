@@ -13,7 +13,7 @@ namespace Cards_Generator
 #if DEBUG
         [DebuggerDisplay("String = {_string} - Hash = {_hash}")]
 #else
-        [DebuggerDisplay(Hash = {_hash}")]
+        [DebuggerDisplay("Hash = {_hash}")]
 #endif
 
 
