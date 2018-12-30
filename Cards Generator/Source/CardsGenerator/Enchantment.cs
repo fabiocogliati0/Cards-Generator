@@ -8,8 +8,10 @@ namespace Cards_Generator
 {
     class Enchantment
     {
-        public int i;
+        public Name name;
 
         public int a;
+
+        public int b = 10;
     }
 }

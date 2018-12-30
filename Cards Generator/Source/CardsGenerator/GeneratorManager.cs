@@ -5,13 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace Cards_Generator
 {
     class GeneratorManager
     {
-
 
         public static GeneratorManager GetInstance()
         {
@@ -48,11 +46,12 @@ namespace Cards_Generator
         }
 
 
+        private GeneratorManager()
+        {
 
-
+        }
 
         private static GeneratorManager _Instance = null;
-
 
         private List<Enchantment> _enchantments;
 
