@@ -5,7 +5,7 @@ namespace Cards_Generator
 {
     static class Globals
     {
-        public enum eLanguage
+        public enum ELanguage
         {
             english,
             italian,
@@ -15,11 +15,11 @@ namespace Cards_Generator
 
         static Globals()
         {
-            _Language = eLanguage.english;
+            _Language = ELanguage.english;
         }
 
 
-        public static eLanguage Language
+        public static ELanguage Language
         {
             get
             {
@@ -31,7 +31,7 @@ namespace Cards_Generator
 
                 switch (_Language)
                 {
-                    case eLanguage.italian:
+                    case ELanguage.italian:
                         Thread.CurrentThread.CurrentUICulture = CurrentCultureInfo = CultureInfo.GetCultureInfo("it-IT");
                         break;
                     default:
@@ -50,7 +50,7 @@ namespace Cards_Generator
 
 
 
-        private static eLanguage _Language;
+        private static ELanguage _Language;
         
 
     }

@@ -19,6 +19,10 @@ namespace Cards_Generator
             _loadingForm = new LoadingForm();
             _loadingForm.ControllerState = this;
             _loadingForm.Show();
+
+            //Load Static Json DB
+            GeneratorManager Manager = GeneratorManager.GetInstance();
+            Manager.LoadData();
         }
 
         public override void OnExit()

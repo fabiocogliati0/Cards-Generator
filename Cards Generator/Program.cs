@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace Cards_Generator
 {
@@ -28,7 +27,7 @@ namespace Cards_Generator
         public CardsGeneratorApplicationContext()
         {
             _currentFSM = FSM.CreateFSM(Paths.CardsGeneratorFSMPath);
-            _currentFSM.Enter();
+            _currentFSM.Start();
         }
 
 

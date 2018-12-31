@@ -15,10 +15,6 @@ namespace Cards_Generator
         public MainForm()
         {
             InitializeComponent();
-
-            GeneratorManager Manager = GeneratorManager.GetInstance();
-
-            Manager.LoadData();
         }
 
     }

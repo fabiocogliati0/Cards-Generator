@@ -13,15 +13,15 @@ namespace Cards_Generator
     public partial class LoadingForm : Form
     {
 
-        public FSMState ControllerState;
-
-
         private const int _MaxLoadingStringPointsNumber = 10;
 
+
+        public FSMState ControllerState;
 
         private int _loadingStringPointsNumber = 0;
 
         private string _loadingTextkey;
+
 
 
         public LoadingForm()

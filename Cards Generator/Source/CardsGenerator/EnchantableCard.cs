@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Cards_Generator
 {
 
-    public enum eCardRarity
+    public enum ECardRarity
     {
         Common,
         Magic,
@@ -19,7 +19,7 @@ namespace Cards_Generator
     class EnchantableCard : Card
     {
 
-        public eCardRarity Rarity;
+        //public ECardRarity Rarity;
 
     } 
 }

@@ -13,10 +13,11 @@ namespace Cards_Generator
     public partial class LocalizationForm : Form
     {
 
-        public FSMState _controllerState;
+        public FSMState ControllerState;
 
         private string _selectLanguageTextKey;
         private string _OkButtonLanguageTextKey;
+
 
         public LocalizationForm()
         {
@@ -36,14 +37,14 @@ namespace Cards_Generator
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            _controllerState.FireAction("Proceed", "");
+            ControllerState.FireAction("Proceed", "");
         }
 
         private void rdbEnglish_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbEnglish.Checked)
             {
-                _controllerState.FireAction("ChangeLanguage", "English");
+                ControllerState.FireAction("ChangeLanguage", "English");
             }
         }
 
@@ -51,7 +52,7 @@ namespace Cards_Generator
         {
             if (rdbItalian.Checked)
             {
-                _controllerState.FireAction("ChangeLanguage", "Italian");
+                ControllerState.FireAction("ChangeLanguage", "Italian");
             }
         }
     }

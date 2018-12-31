@@ -20,7 +20,7 @@ namespace Cards_Generator
         public override void OnEnter()
         {
             _localizationForm = new LocalizationForm();
-            _localizationForm._controllerState = this;
+            _localizationForm.ControllerState = this;
             _localizationForm.Show();
         }
 
@@ -40,13 +40,13 @@ namespace Cards_Generator
             {
                 if (Param == EnglishParam)
                 {
-                    Globals.Language = Globals.eLanguage.english;
+                    Globals.Language = Globals.ELanguage.english;
                     _localizationForm.RefreshContent();
 
                 }
                 else if (Param == ItalianParam)
                 {
-                    Globals.Language = Globals.eLanguage.italian;
+                    Globals.Language = Globals.ELanguage.italian;
                     _localizationForm.RefreshContent();
                 }
             }

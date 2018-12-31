@@ -69,9 +69,9 @@ namespace Cards_Generator
         {
         }
 
-        public void Enter()
+        public void Start()
         {
-            setCurrentState(EnterStateName);
+            SetCurrentState(EnterStateName);
             _currentState.OnEnter();
         }
 
@@ -81,13 +81,13 @@ namespace Cards_Generator
             {
                 _currentState.OnExit();
                 Name destinationState = _currentStateDeclaration.Transitions[Transition];
-                setCurrentState(destinationState);
+                SetCurrentState(destinationState);
                 _currentState.OnEnter();
             }
         }
 
 
-        private void setCurrentState(Name stateName)
+        private void SetCurrentState(Name stateName)
         {
             _currentState = _states.Find(x => x.Name == stateName);
             _currentStateDeclaration = StatesDeclarations.Find(x => x.Name == stateName);
@@ -99,8 +99,6 @@ namespace Cards_Generator
         private FSMState _currentState;
 
         private FSMStateDeclaration _currentStateDeclaration;
-
-        private FSMState _enterState;
 
 
     }

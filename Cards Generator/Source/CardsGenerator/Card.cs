@@ -9,6 +9,6 @@ namespace Cards_Generator
 {
     class Card
     {
-        Name BaseImageKey;
+        //Name BaseImageKey;
     }
 }
