@@ -38,9 +38,9 @@
             this.lblLoading.AutoSize = true;
             this.lblLoading.Location = new System.Drawing.Point(12, 292);
             this.lblLoading.Name = "lblLoading";
-            this.lblLoading.Size = new System.Drawing.Size(59, 17);
+            this.lblLoading.Size = new System.Drawing.Size(67, 17);
             this.lblLoading.TabIndex = 0;
-            this.lblLoading.Text = "Loading";
+            this.lblLoading.Text = "#Loading";
             // 
             // tmrUpdate
             // 

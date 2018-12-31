@@ -72,6 +72,7 @@
     <Compile Include="Source\CardsGenerator\GeneratorManager.cs" />
     <Compile Include="Source\CardsGenerator\Globals.cs" />
     <Compile Include="Source\CardsGenerator\Paths.cs" />
+    <Compile Include="Source\CardsGenerator\UIUtils.cs" />
     <Compile Include="Source\Core\FSMState.cs" />
     <Compile Include="Source\Core\FSM.cs" />
     <Compile Include="Source\Core\Name.cs" />
@@ -80,6 +81,12 @@
     </Compile>
     <Compile Include="Source\Forms\LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\LocalizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\LocalizationForm.Designer.cs">
+      <DependentUpon>LocalizationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -93,6 +100,7 @@
     <Compile Include="Source\CardsGenerator\EnchantableCard.cs" />
     <Compile Include="Source\CardsGenerator\Enchantment.cs" />
     <Compile Include="Source\FSM\LoadingState.cs" />
+    <Compile Include="Source\FSM\LocalizationState.cs" />
     <Compile Include="Source\FSM\MainMenuState.cs" />
     <EmbeddedResource Include="Properties\strings.it.resx" />
     <EmbeddedResource Include="Properties\Strings.resx">
@@ -101,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\LocalizationForm.resx">
+      <DependentUpon>LocalizationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

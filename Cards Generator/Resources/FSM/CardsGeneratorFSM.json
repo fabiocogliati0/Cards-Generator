@@ -1,7 +1,14 @@
 {
   "Name": "CardsGeneratorFSM",
-  "EnterStateName": "LoadingState",
+  "EnterStateName": "LocalizationState",
   "StatesDeclarations": [
+    {
+      "Name": "LocalizationState",
+      "Class": "Cards_Generator.LocalizationState",
+      "Transitions": {
+        "Proceed": "LoadingState"
+      }
+    },
     {
       "Name": "LoadingState",
       "Class": "Cards_Generator.LoadingState",

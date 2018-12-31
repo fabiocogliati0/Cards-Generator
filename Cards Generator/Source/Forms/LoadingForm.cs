@@ -12,20 +12,30 @@ namespace Cards_Generator
 {
     public partial class LoadingForm : Form
     {
+
+        public FSMState ControllerState;
+
+
+        private const int _MaxLoadingStringPointsNumber = 10;
+
+
+        private int _loadingStringPointsNumber = 0;
+
+        private string _loadingTextkey;
+
+
         public LoadingForm()
         {
             InitializeComponent();
-
-            // Set language to italian #TODO make language selection form
-            Globals.Language = Globals.eLanguage.italian;
+            _loadingTextkey = UIUtils.ResolveTextKey(lblLoading.Text);
         }
 
         private void tmrUpdate_Tick(object sender, EventArgs e)
         {
 
             // Generate loading string
-            string loadingText = Properties.Strings.Loading;
-            for(var i = 0; i < _loadingStringPointsNumber; ++i)
+            string loadingText = _loadingTextkey;
+            for (var i = 0; i < _loadingStringPointsNumber; ++i)
             {
                 loadingText += ".";
             }
@@ -34,15 +44,6 @@ namespace Cards_Generator
 
 
         }
-
-
-        public FSMState ControllerState; 
-
-
-        private const int _MaxLoadingStringPointsNumber = 10;
-
-
-        private int _loadingStringPointsNumber = 0;
 
         private void LoadingForm_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -9,9 +9,9 @@ namespace Cards_Generator
     class LoadingState : FSMState
     {
 
-        private static readonly string ProceedTransition = "Proceed";
+        private static readonly Name ProceedTransition = "Proceed";
 
-        private static readonly string CloseAction = "Close";
+        private static readonly Name CloseAction = "Close";
 
 
         public override void OnEnter()
@@ -31,7 +31,7 @@ namespace Cards_Generator
         {
             if(Action == CloseAction)
             {
-                TriggerTranstion("Proceed");
+                TriggerTranstion(ProceedTransition);
             }
         }
 
