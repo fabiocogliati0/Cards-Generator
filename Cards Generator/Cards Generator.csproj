@@ -64,9 +64,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Source\CardsGenerator\GeneratorManager.cs" />
+    <Compile Include="Source\CardsGenerator\Globals.cs" />
     <Compile Include="Source\CardsGenerator\Paths.cs" />
+    <Compile Include="Source\Core\FSMState.cs" />
+    <Compile Include="Source\Core\FSM.cs" />
     <Compile Include="Source\Core\Name.cs" />
+    <Compile Include="Source\Forms\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +92,16 @@
     <Compile Include="Source\CardsGenerator\Card.cs" />
     <Compile Include="Source\CardsGenerator\EnchantableCard.cs" />
     <Compile Include="Source\CardsGenerator\Enchantment.cs" />
+    <Compile Include="Source\FSM\LoadingState.cs" />
+    <Compile Include="Source\FSM\MainMenuState.cs" />
+    <EmbeddedResource Include="Properties\strings.it.resx" />
+    <EmbeddedResource Include="Properties\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +125,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Resources\Data\Enchantments.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\FSM\CardsGeneratorFSM.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

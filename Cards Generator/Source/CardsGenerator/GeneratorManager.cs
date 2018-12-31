@@ -46,6 +46,7 @@ namespace Cards_Generator
         }
 
 
+
         private GeneratorManager()
         {
 

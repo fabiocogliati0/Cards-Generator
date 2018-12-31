@@ -18,7 +18,20 @@ namespace Cards_Generator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new CardsGeneratorApplicationContext());
         }
+    }
+
+    class CardsGeneratorApplicationContext : ApplicationContext
+    {
+
+        public CardsGeneratorApplicationContext()
+        {
+            _currentFSM = FSM.CreateFSM(Paths.CardsGeneratorFSMPath);
+            _currentFSM.Enter();
+        }
+
+
+        private FSM _currentFSM;
     }
 }

@@ -1,0 +1,19 @@
+{
+  "Name": "CardsGeneratorFSM",
+  "EnterStateName": "LoadingState",
+  "StatesDeclarations": [
+    {
+      "Name": "LoadingState",
+      "Class": "Cards_Generator.LoadingState",
+      "Transitions": {
+        "Proceed": "MainMenuState"
+      }
+    },
+    {
+      "Name": "MainMenuState",
+      "Class": "Cards_Generator.MainMenuState",
+      "Transitions": {
+      }
+    }
+  ]
+}

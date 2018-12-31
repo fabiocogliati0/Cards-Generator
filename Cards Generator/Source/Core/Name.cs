@@ -8,7 +8,7 @@ namespace Cards_Generator
     /// Name class that contains the hash of the desired string. It keeps the source string only in debug builds
     /// </summary>
     [DebuggerDisplay("{_infoString}")]
-    class Name
+    public class Name
     {
 
         /// <summary> Empty name </summary>
@@ -41,7 +41,14 @@ namespace Cards_Generator
         /// <returns></returns>
         public static bool operator ==(Name first, Name second)
         {
-            return first._hash == second._hash;
+            if (object.ReferenceEquals(first, null))
+            {
+                return object.ReferenceEquals(second, null);
+            }
+            else
+            {
+                return first.Equals(second);
+            }
         }
 
         /// <summary>
@@ -52,7 +59,7 @@ namespace Cards_Generator
         /// <returns></returns>
         public static bool operator !=(Name first, Name second)
         {
-            return first._hash != second._hash;
+            return !(first == second);
         }
 
      
