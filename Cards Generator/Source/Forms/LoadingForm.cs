@@ -27,7 +27,9 @@ namespace Cards_Generator
         public LoadingForm()
         {
             InitializeComponent();
-            _loadingTextkey = UIUtils.ResolveTextKey(lblLoading.Text);
+            _loadingTextkey = UIUtils.ResolveTextKey(lblLoading.Text); 
+
+
         }
 
         private void tmrUpdate_Tick(object sender, EventArgs e)
