@@ -77,7 +77,7 @@ namespace Cards_Generator
             }
         }
 
-        public CardClass GenerateRandomCard<CardClass>(ECardRarity rarity)
+        public CardClass GenerateRandomCard<CardClass>(ECardRarity rarity) where CardClass : Card
         {
             CardClass generatedCard = default(CardClass);
 
@@ -101,7 +101,7 @@ namespace Cards_Generator
             return generatedCard;
         }
 
-        public CardClass GenerateCard<CardClass>(Card baseCard, ECardRarity rarity)
+        public CardClass GenerateCard<CardClass>(Card baseCard, ECardRarity rarity) where CardClass : Card
         {
             Card generatedCard = null;
 
