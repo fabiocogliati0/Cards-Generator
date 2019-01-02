@@ -29,8 +29,10 @@ namespace Cards_Generator
 
         public override void OnEnter()
         {
-            _mainForm = new MainForm();
-            _mainForm.ControllerState = this;
+            _mainForm = new MainForm
+            {
+                ControllerState = this
+            };
             _mainForm.Show();
         }
 

@@ -118,10 +118,19 @@
     <Compile Include="Source\FSM\LoadingState.cs" />
     <Compile Include="Source\FSM\LocalizationState.cs" />
     <Compile Include="Source\FSM\MainMenuState.cs" />
+    <Compile Include="Source\Controls\MapVisualizer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Source\Controls\MapVisualizer.Designer.cs">
+      <DependentUpon>MapVisualizer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\strings.it.resx" />
     <EmbeddedResource Include="Properties\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Controls\MapVisualizer.resx">
+      <DependentUpon>MapVisualizer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\GenerateMapForm.resx">
       <DependentUpon>GenerateMapForm.cs</DependentUpon>

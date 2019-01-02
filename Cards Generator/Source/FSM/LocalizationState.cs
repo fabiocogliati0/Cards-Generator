@@ -19,8 +19,10 @@ namespace Cards_Generator
         
         public override void OnEnter()
         {
-            _localizationForm = new LocalizationForm();
-            _localizationForm.ControllerState = this;
+            _localizationForm = new LocalizationForm
+            {
+                ControllerState = this
+            };
             _localizationForm.Show();
         }
 

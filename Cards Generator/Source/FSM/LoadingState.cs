@@ -16,8 +16,10 @@ namespace Cards_Generator
 
         public override void OnEnter()
         {
-            _loadingForm = new LoadingForm();
-            _loadingForm.ControllerState = this;
+            _loadingForm = new LoadingForm
+            {
+                ControllerState = this
+            };
             _loadingForm.Show();
 
             //Load Static Json DB - #TODO make this operation async

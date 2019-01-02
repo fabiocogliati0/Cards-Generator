@@ -30,9 +30,11 @@ namespace Cards_Generator
         public override void OnEnter()
         {
             _tiles = new int[_TilesSizeX,_TilesSizeY];
-            
-            _form = new GenerateMapForm();
-            _form.ControllerState = this;
+
+            _form = new GenerateMapForm
+            {
+                ControllerState = this
+            };
             GenerateMap();
             _form.Show();
         }

@@ -60,8 +60,10 @@ namespace Cards_Generator
 
         public override void OnEnter()
         {
-            _generateRandomCardForm = new GenerateRandomCardForm();
-            _generateRandomCardForm.ControllerState = this;
+            _generateRandomCardForm = new GenerateRandomCardForm
+            {
+                ControllerState = this
+            };
             _generateRandomCardForm.Show();
         }
 
