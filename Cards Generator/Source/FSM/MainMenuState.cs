@@ -9,8 +9,10 @@ namespace Cards_Generator
     class MainMenuState : FSMState
     {
         private static readonly Name ToGeneratorAction = "ToGenerator";
+        private static readonly Name ToMapGeneratorAction = "ToMapGenerator";
 
         private static readonly Name ToGeneratorTransition = "ToGenerator";
+        private static readonly Name ToMapGeneratorTransition = "ToMapGenerator";
 
 
         public override void OnAction(Name Action, Name Param)
@@ -18,6 +20,10 @@ namespace Cards_Generator
             if(Action == ToGeneratorAction)
             {
                 TriggerTranstion(ToGeneratorTransition);
+            }
+            else if(Action == ToMapGeneratorAction)
+            {
+                TriggerTranstion(ToMapGeneratorTransition);
             }
         }
 

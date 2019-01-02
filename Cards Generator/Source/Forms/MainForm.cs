@@ -25,5 +25,11 @@ namespace Cards_Generator
         {
             ControllerState.FireAction("ToGenerator","");
         }
+
+        private void btnMapGenerator_Click(object sender, EventArgs e)
+        {
+            ControllerState.FireAction("ToMapGenerator", "");
+
+        }
     }
 }

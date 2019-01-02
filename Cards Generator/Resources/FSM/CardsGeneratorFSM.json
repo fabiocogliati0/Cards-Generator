@@ -20,12 +20,20 @@
       "Name": "MainMenuState",
       "Class": "Cards_Generator.MainMenuState",
       "Transitions": {
-        "ToGenerator": "GenerateRandomCardState"
+        "ToGenerator": "GenerateRandomCardState",
+        "ToMapGenerator": "GenerateMapState"
       }
     },
     {
       "Name": "GenerateRandomCardState",
       "Class": "Cards_Generator.GenerateRandomCardState",
+      "Transitions": {
+        "Back": "MainMenuState"
+      }
+    },
+    {
+      "Name": "GenerateMapState",
+      "Class": "Cards_Generator.GenerateMapState",
       "Transitions": {
         "Back": "MainMenuState"
       }

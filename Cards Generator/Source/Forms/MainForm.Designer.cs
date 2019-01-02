@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnGenerator = new System.Windows.Forms.Button();
+            this.btnMapGenerator = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGenerator
@@ -37,15 +38,26 @@
             this.btnGenerator.Name = "btnGenerator";
             this.btnGenerator.Size = new System.Drawing.Size(106, 76);
             this.btnGenerator.TabIndex = 0;
-            this.btnGenerator.Text = "Generator";
+            this.btnGenerator.Text = "Card Generator";
             this.btnGenerator.UseVisualStyleBackColor = true;
             this.btnGenerator.Click += new System.EventHandler(this.btnGenerator_Click);
+            // 
+            // btnMapGenerator
+            // 
+            this.btnMapGenerator.Location = new System.Drawing.Point(160, 23);
+            this.btnMapGenerator.Name = "btnMapGenerator";
+            this.btnMapGenerator.Size = new System.Drawing.Size(106, 76);
+            this.btnMapGenerator.TabIndex = 1;
+            this.btnMapGenerator.Text = "Map Generator";
+            this.btnMapGenerator.UseVisualStyleBackColor = true;
+            this.btnMapGenerator.Click += new System.EventHandler(this.btnMapGenerator_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 419);
+            this.Controls.Add(this.btnMapGenerator);
             this.Controls.Add(this.btnGenerator);
             this.Name = "MainForm";
             this.Text = "Cards Generator";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnGenerator;
+        private System.Windows.Forms.Button btnMapGenerator;
     }
 }
 
