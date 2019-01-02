@@ -20,9 +20,11 @@ namespace Cards_Generator
             _loadingForm.ControllerState = this;
             _loadingForm.Show();
 
-            //Load Static Json DB
-            GeneratorManager Manager = GeneratorManager.GetInstance();
+            //Load Static Json DB - #TODO make this operation async
+            CardsGeneratorManager Manager = CardsGeneratorManager.GetInstance();
             Manager.LoadData();
+
+            TriggerTranstion(ProceedTransition);
         }
 
         public override void OnExit()
@@ -33,10 +35,7 @@ namespace Cards_Generator
 
         public override void OnAction(Name Action, Name Param)
         {
-            if(Action == CloseAction)
-            {
-                TriggerTranstion(ProceedTransition);
-            }
+                
         }
 
 

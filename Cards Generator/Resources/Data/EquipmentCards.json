@@ -1,0 +1,50 @@
+[
+  {
+    "Name": "Sword",
+    "Title": "#Sword",
+    "BaseImageKey": "",
+    "EquipmentType": "Weapon",
+    "BaseStrenght": 5,
+    "BaseDefence": 0
+  },
+  {
+    "Name": "Axe",
+    "Title": "#Axe",
+    "BaseImageKey": "",
+    "EquipmentType": "Weapon",
+    "BaseStrenght": 5,
+    "BaseDefence": 0
+  },
+  {
+    "Name": "WoodShield",
+    "Title": "#WoodShield",
+    "BaseImageKey": "",
+    "EquipmentType": "Shield",
+    "BaseStrenght": 0,
+    "BaseDefence": 3
+  },
+  {
+    "Name": "SpikeShield",
+    "Title": "#SpikeShield",
+    "BaseImageKey": "",
+    "EquipmentType": "Weapon",
+    "BaseStrenght": 2,
+    "BaseDefence": 1
+  },
+  {
+    "Name": "ClothArmor",
+    "Title": "#ClothArmor",
+    "BaseImageKey": "",
+    "EquipmentType": "Armor",
+    "BaseStrenght": 0,
+    "BaseDefence": 5
+  },
+  {
+    "Name": "StoneOfJordan",
+    "Title": "#StoneOfJordan",
+    "BaseImageKey": "",
+    "EquipmentType": "Ring",
+    "BaseStrenght": 0,
+    "BaseDefence": 0
+  }
+]

@@ -69,13 +69,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Source\CardsGenerator\CreatureCard.cs" />
     <Compile Include="Source\CardsGenerator\GeneratorManager.cs" />
-    <Compile Include="Source\CardsGenerator\Globals.cs" />
-    <Compile Include="Source\CardsGenerator\Paths.cs" />
-    <Compile Include="Source\CardsGenerator\UIUtils.cs" />
+    <Compile Include="Source\Core\Globals.cs" />
+    <Compile Include="Source\Core\Paths.cs" />
+    <Compile Include="Source\Core\UIUtils.cs" />
+    <Compile Include="Source\CardsGenerator\EquipmentCard.cs" />
     <Compile Include="Source\Core\FSMState.cs" />
     <Compile Include="Source\Core\FSM.cs" />
+    <Compile Include="Source\Core\LocalizableString.cs" />
     <Compile Include="Source\Core\Name.cs" />
+    <Compile Include="Source\Forms\GenerateRandomCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\GenerateRandomCardForm.Designer.cs">
+      <DependentUpon>GenerateRandomCardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Forms\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,8 +106,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\CardsGenerator\Card.cs" />
-    <Compile Include="Source\CardsGenerator\EnchantableCard.cs" />
     <Compile Include="Source\CardsGenerator\Enchantment.cs" />
+    <Compile Include="Source\FSM\GenerateRandomCardState.cs" />
     <Compile Include="Source\FSM\LoadingState.cs" />
     <Compile Include="Source\FSM\LocalizationState.cs" />
     <Compile Include="Source\FSM\MainMenuState.cs" />
@@ -106,6 +115,9 @@
     <EmbeddedResource Include="Properties\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\GenerateRandomCardForm.resx">
+      <DependentUpon>GenerateRandomCardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
@@ -135,7 +147,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Data\CardsGeneratorSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\Data\Enchantments.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Data\CreatureCards.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Data\EquipmentCards.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\FSM\CardsGeneratorFSM.json">
@@ -157,7 +178,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Documentation\Obiettivi.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

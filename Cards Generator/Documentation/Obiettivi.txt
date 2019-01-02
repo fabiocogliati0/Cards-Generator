@@ -1,0 +1,9 @@
+﻿Versione 0.01:
+- Classi per carte equipaggiamento, creatura
+- Classe enchantment
+- Possibilità di definire se un enchantment è applicabile a una creatura o un equipaggiamento
+- Generazione casuale di una carta creatura e una carta equipaggiamento
+- Il metodo di generazione può variare in base alla rarità richiesta, in dettaglio
+	- Carta con rarità magica: 2 enchantment a random
+	- Carta con rarità rare: 5 enchantment a random
+- Visualizzazione della carta generata su un form (senza immagine della carta)

@@ -8,14 +8,19 @@ using System.Diagnostics;
 namespace Cards_Generator
 {
     [DebuggerDisplay("{_infoString}")]
-    class Enchantment
+    public class Enchantment
     {
 
         public Name Name;
 
-        public int a;
+        public Name ImageKey;
 
-        public int b = 10;
+        public string TextKey;
+
+        public bool isApplicableToCreatures = true;
+
+        public bool isApplicableToEquipments = true;
+
 
 
         public override string ToString()

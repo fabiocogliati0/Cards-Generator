@@ -77,12 +77,15 @@ namespace Cards_Generator
 
         public void TriggerTransition(Name Transition)
         {
-            if (_currentStateDeclaration.Transitions.ContainsKey(Transition))
+            if (_currentStateDeclaration.Transitions != null)
             {
-                _currentState.OnExit();
-                Name destinationState = _currentStateDeclaration.Transitions[Transition];
-                SetCurrentState(destinationState);
-                _currentState.OnEnter();
+                if (_currentStateDeclaration.Transitions.ContainsKey(Transition))
+                {
+                    _currentState.OnExit();
+                    Name destinationState = _currentStateDeclaration.Transitions[Transition];
+                    SetCurrentState(destinationState);
+                    _currentState.OnEnter();
+                }
             }
         }
 

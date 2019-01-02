@@ -1,6 +1,72 @@
 [
   {
-    "Name": "ciao",
-    "a": 30
+    "Name": "IncreasedAttack",
+    "ImageKey": "",
+    "TextKey": "#IncreasedAttack",
+    "isApplicableToCreatures": true,
+    "isApplicableToEquipments": true
+  },
+  {
+    "Name": "IncreasedDefence",
+    "ImageKey": "",
+    "TextKey": "#IncreasedDefence",
+    "isApplicableToCreatures": true,
+    "isApplicableToEquipments": true
+  },
+  {
+    "Name": "FireAttack",
+    "ImageKey": "",
+    "TextKey": "#FireAttack",
+    "isApplicableToCreatures": true,
+    "isApplicableToEquipments": true
+  },
+  {
+    "Name": "FireBlock",
+    "ImageKey": "",
+    "TextKey": "#FireBlock",
+    "isApplicableToCreatures": true,
+    "isApplicableToEquipments": true
+  },
+  {
+    "Name": "IceAttack",
+    "ImageKey": "",
+    "TextKey": "#IceAttack",
+    "isApplicableToCreatures": true,
+    "isApplicableToEquipments": true
+  },
+  {
+    "Name": "IceBlock",
+    "ImageKey": "",
+    "TextKey": "#IceBlock",
+    "isApplicableToCreatures": true,
+    "isApplicableToEquipments": true
+  },
+  {
+    "Name": "ThunderAttack",
+    "ImageKey": "",
+    "TextKey": "#ThunderAttack",
+    "isApplicableToCreatures": true,
+    "isApplicableToEquipments": true
+  },
+  {
+    "Name": "ThunderBlock",
+    "ImageKey": "",
+    "TextKey": "#ThunderBlock",
+    "isApplicableToCreatures": true,
+    "isApplicableToEquipments": true
+  },
+  {
+    "Name": "PoisonOnHit",
+    "ImageKey": "",
+    "TextKey": "#PoisonOnHit",
+    "isApplicableToCreatures": true,
+    "isApplicableToEquipments": true
+  },
+  {
+    "Name": "StunOnHit",
+    "ImageKey": "",
+    "TextKey": "#StunOnHit",
+    "isApplicableToCreatures": true,
+    "isApplicableToEquipments": true
   }
 ]

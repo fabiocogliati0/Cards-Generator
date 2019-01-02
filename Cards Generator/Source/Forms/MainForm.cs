@@ -12,10 +12,18 @@ namespace Cards_Generator
 {
     public partial class MainForm : Form
     {
+
+        public FSMState ControllerState;
+
+
         public MainForm()
         {
             InitializeComponent();
         }
 
+        private void btnGenerator_Click(object sender, EventArgs e)
+        {
+            ControllerState.FireAction("ToGenerator","");
+        }
     }
 }

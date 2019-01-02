@@ -44,13 +44,5 @@ namespace Cards_Generator
 
 
         }
-
-        private void LoadingForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(ControllerState != null)
-            {
-                ControllerState.FireAction("Close","");
-            }
-        }
     }
 }

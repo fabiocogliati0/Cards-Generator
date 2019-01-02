@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "Tiger",
+    "Title": "#Tiger",
+    "BaseImageKey": "",
+    "Strength": 2,
+    "Defence": 1
+  },
+  {
+    "Name": "Bear",
+    "Title": "#Bear",
+    "BaseImageKey": "",
+    "Strength": 2,
+    "Defence": 2
+  },
+  {
+    "Name": "Spider",
+    "Title": "#Spider",
+    "BaseImageKey": "",
+    "Strength": 1,
+    "Defence": 3
+  },
+  {
+    "Name": "Wall",
+    "Title": "#Wall",
+    "BaseImageKey": "",
+    "Strength": 0,
+    "Defence": 5
+  }
+]

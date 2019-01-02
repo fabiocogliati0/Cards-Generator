@@ -55,7 +55,6 @@
             this.Controls.Add(this.lblLoading);
             this.Name = "LoadingForm";
             this.Text = "LoadingForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoadingForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

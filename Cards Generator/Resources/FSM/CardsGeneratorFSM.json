@@ -20,6 +20,14 @@
       "Name": "MainMenuState",
       "Class": "Cards_Generator.MainMenuState",
       "Transitions": {
+        "ToGenerator": "GenerateRandomCardState"
+      }
+    },
+    {
+      "Name": "GenerateRandomCardState",
+      "Class": "Cards_Generator.GenerateRandomCardState",
+      "Transitions": {
+        "Back": "MainMenuState"
       }
     }
   ]
