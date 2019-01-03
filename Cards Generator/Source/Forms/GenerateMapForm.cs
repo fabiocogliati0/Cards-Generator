@@ -36,6 +36,17 @@ namespace Cards_Generator
         {
             ControllerState.FireAction("Generate", "");
         }
+
+        private void tmrAutorefresh_Tick(object sender, EventArgs e)
+        {
+            ControllerState.FireAction("Generate", "");
+        }
+
+        private void chkAutorefresh_CheckedChanged(object sender, EventArgs e)
+        {
+            tmrAutorefresh.Enabled = chkAutorefresh.Checked;
+            btnGenerate.Enabled = !chkAutorefresh.Checked;
+        }
     }
 
     
