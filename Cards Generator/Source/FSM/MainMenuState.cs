@@ -10,9 +10,11 @@ namespace Cards_Generator
     {
         private static readonly Name ToGeneratorAction = "ToGenerator";
         private static readonly Name ToMapGeneratorAction = "ToMapGenerator";
+        private static readonly Name ToCreditAction = "ToCredit";
 
         private static readonly Name ToGeneratorTransition = "ToGenerator";
         private static readonly Name ToMapGeneratorTransition = "ToMapGenerator";
+        private static readonly Name ToCreditTransition = "ToCredit";
 
 
         public override void OnAction(Name Action, Name Param)
@@ -24,6 +26,10 @@ namespace Cards_Generator
             else if(Action == ToMapGeneratorAction)
             {
                 TriggerTranstion(ToMapGeneratorTransition);
+            }
+            else if(Action == ToCreditAction)
+            {
+                TriggerTranstion(ToCreditTransition);
             }
         }
 
