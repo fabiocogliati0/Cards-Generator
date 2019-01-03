@@ -21,9 +21,9 @@ namespace Cards_Generator
             InitializeComponent();
         }
 
-        public void SetMap(int[,] tiles)
+        public void SetMap(BoardMap boardMap)
         {
-            MapVisualizer.SetMap(tiles);
+            MapVisualizer.SetMap(boardMap);
         }
         
 

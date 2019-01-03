@@ -22,13 +22,13 @@ namespace Cards_Generator
             base.OnPaint(pe);
         }
 
-        public void SetMap(int[,] tiles)
+        public void SetMap(BoardMap boardMap)
         {
             int W = this.Width;
             int H = this.Height;
 
-            int nTileW = tiles.GetLength(0);
-            int nTileH = tiles.GetLength(1);
+            int nTileW = boardMap.Tiles.GetLength(0);
+            int nTileH = boardMap.Tiles.GetLength(1);
 
             int rectSizeX = W / nTileW;
             int rectSizeY = H / nTileH;
@@ -46,32 +46,9 @@ namespace Cards_Generator
                         int posX = rectSizeX * i;
                         int posY = rectSizeY * j;
 
-                        Brush currentBrush = null;
-
-                        switch (tiles[i, j])
-                        {
-                            case 0:
-                                currentBrush = Brushes.Blue;
-                                break;
-                            case 1:
-                                currentBrush = Brushes.Red;
-                                break;
-                            case 2:
-                                currentBrush = Brushes.Yellow;
-                                break;
-                            case 3:
-                                currentBrush = Brushes.Purple;
-                                break;
-                            case 4:
-                                currentBrush = Brushes.Orange;
-                                break;
-                            default:
-                                currentBrush = Brushes.Black;
-                                break;
-                        }
-
                         Rectangle rectangle = new Rectangle(posX, posY, rectSizeX, rectSizeY);
-                        graphics.DrawRectangle(Pens.Black, rectangle);
+                        BoardMap.ETileType tileType = boardMap.Tiles[i, j];
+                        Brush currentBrush = new SolidBrush(Globals.UISettings.TilesDebugBrushColors[tileType]);
                         graphics.FillRectangle(currentBrush, rectangle);
                     }
                 }

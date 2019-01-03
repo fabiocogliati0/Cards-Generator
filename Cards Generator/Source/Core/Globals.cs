@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Threading;
 
 namespace Cards_Generator
@@ -24,6 +28,20 @@ namespace Cards_Generator
         {
             RandomNumberGenerator = new Random();
             _Language = ELanguage.english;
+
+            try
+            {
+                // Read UI settings from json
+                using (StreamReader reader = new StreamReader(Paths.UISettingsDataPath))
+                {
+                    string json = reader.ReadToEnd();
+                    UISettings = JsonConvert.DeserializeObject<UserInterfaceSettings>(json);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.Error.Write(e.Message);
+            }
         }
 
         /// <summary>
@@ -60,6 +78,8 @@ namespace Cards_Generator
             return generatedNumbers;
         }
 
+
+        public static UserInterfaceSettings UISettings;
 
         public static ELanguage Language
         {
@@ -101,5 +121,11 @@ namespace Cards_Generator
         private static ELanguage _Language;
         
 
+    }
+
+
+    public class UserInterfaceSettings
+    {
+        public Dictionary<BoardMap.ETileType, Color> TilesDebugBrushColors;
     }
 }

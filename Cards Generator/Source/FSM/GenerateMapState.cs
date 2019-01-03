@@ -29,7 +29,7 @@ namespace Cards_Generator
 
         public override void OnEnter()
         {
-            _tiles = new int[_TilesSizeX,_TilesSizeY];
+            
 
             _form = new GenerateMapForm
             {
@@ -42,15 +42,8 @@ namespace Cards_Generator
 
         private void GenerateMap()
         {
-            for (var i = 0; i < _TilesSizeX; ++i)
-            {
-                for (var j = 0; j < _TilesSizeY; ++j)
-                {
-                    _tiles[i, j] = Globals.RandomNumberGenerator.Next(_MinTileValue, _MaxTileValue);
-                }
-            }
-
-            _form.SetMap(_tiles);
+            BoardMap generatedMap = CardsGeneratorManager.GetInstance().GenerateMap(_TilesSizeX, _TilesSizeY);
+            _form.SetMap(generatedMap);
         }
 
         public override void OnExit()
@@ -59,17 +52,11 @@ namespace Cards_Generator
             _form.Dispose();
         }
 
-        private const int _TilesSizeX = 20;
+        private const int _TilesSizeX = 50;
 
-        private const int _TilesSizeY = 20;
+        private const int _TilesSizeY = 50;
 
-        private const int _MinTileValue = 0;
-
-        private const int _MaxTileValue = 5;
-
-
+ 
         private GenerateMapForm _form;
-
-        private int[,] _tiles;
     }
 }

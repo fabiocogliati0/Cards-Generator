@@ -70,7 +70,8 @@
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
     <Compile Include="Source\CardsGenerator\CreatureCard.cs" />
-    <Compile Include="Source\CardsGenerator\GeneratorManager.cs" />
+    <Compile Include="Source\CardsGenerator\CardsGeneratorManager.cs" />
+    <Compile Include="Source\CardsGenerator\BoardMap.cs" />
     <Compile Include="Source\Core\Globals.cs" />
     <Compile Include="Source\Core\Paths.cs" />
     <Compile Include="Source\Core\UIUtils.cs" />
@@ -166,7 +167,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\Data\CardsGeneratorSettings.json">
+    <None Include="Resources\Config\CardsGeneratorSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Config\UISettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\Data\Enchantments.json">

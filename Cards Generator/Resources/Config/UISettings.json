@@ -1,0 +1,9 @@
+{
+  "TilesDebugBrushColors": {
+    "Empty": "Black",
+    "Road": "Brown",
+    "StartPoint": "Blue",
+    "Shop": "Yellow",
+    "Monster": "Red"
+  }
+}
