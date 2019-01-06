@@ -14,6 +14,13 @@ namespace Cards_Generator
         public Dictionary<ECardRarity, uint> EnchantmentsNumberPerRarity;
         public uint MaxGenerationAttempts;
         public uint RoadsTilesToPlace;
+        public uint MinNumberOfRoadsForks;
+        public uint MaxNumberOfRoadsForks;
+        public uint MinNumberOfMonsters;
+        public uint MaxNumberOfMonsters;
+        public uint MinNumberOfShops;
+        public uint MaxNumberOfShops;
+
     }
 
 
@@ -157,89 +164,86 @@ namespace Cards_Generator
             {
                 generationOk = true;
 
+                // Create a map that will contains the validity of each direction
+                Dictionary<BoardMap.EDirection, bool> validDirection = new Dictionary<BoardMap.EDirection, bool>();
+
                 //Clear map
                 boardMap.Clear();
 
-                //Choose random  starting point on the edges
-                int startPointX, startPointY;
-                int edge = Globals.RandomNumberGenerator.Next(0, 4);
-                switch (edge)
-                {
-                    case 0:
-                        startPointX = 0;
-                        startPointY = Globals.RandomNumberGenerator.Next(0, SizeY);
-                        break;
-                    case 1:
-                        startPointX = SizeX - 1;
-                        startPointY = Globals.RandomNumberGenerator.Next(0, SizeY);
-                        break;
-                    case 2:
-                        startPointX = Globals.RandomNumberGenerator.Next(0, SizeX);
-                        startPointY = 0;
-                        break;
-                    default:
-                        startPointX = Globals.RandomNumberGenerator.Next(0, SizeX);
-                        startPointY = SizeX - 1;
-                        break;
-                }
-                boardMap.Tiles[startPointX, startPointY] = BoardMap.ETileType.StartPoint;
+                //Choose random starting point on the edges
+                BoardPoint startPoint = boardMap.GetRandomEdgePosition();
+                boardMap.SetTile(startPoint, BoardMap.ETileType.StartPoint);
 
 
-                //Place a random road
-                int currentPosX = startPointX;
-                int currentPosY = startPointY;
+                // Generate roads
+                BoardPoint currentPos = startPoint;
                 for (var i = 0; i < _settings.RoadsTilesToPlace; ++i)
                 {
-                    //Calculate possible direction
-                    bool[] directionOk = new bool[4];   // order = up, right, down, left
-                    Point[] nextPoint = new Point[4];     // order = up, right, down, left
-                    directionOk[0] = currentPosY - 1 >= 0 && boardMap.Tiles[currentPosX, currentPosY - 1] == BoardMap.ETileType.Empty;
-                    directionOk[1] = currentPosX + 1 < SizeX && boardMap.Tiles[currentPosX + 1, currentPosY] == BoardMap.ETileType.Empty;
-                    directionOk[2] = currentPosY + 1 < SizeY && boardMap.Tiles[currentPosX, currentPosY + 1] == BoardMap.ETileType.Empty;
-                    directionOk[3] = currentPosX - 1 >= 0 && boardMap.Tiles[currentPosX - 1, currentPosY] == BoardMap.ETileType.Empty;
-                    nextPoint[0] = new Point(currentPosX, currentPosY - 1);
-                    nextPoint[1] = new Point(currentPosX + 1, currentPosY);
-                    nextPoint[2] = new Point(currentPosX, currentPosY + 1);
-                    nextPoint[3] = new Point(currentPosX - 1, currentPosY);
-                    int possibleDirections = directionOk.Count(x => x == true);
-                    if (possibleDirections == 0)
+                    //Calculate possible directions
+                    int possibleDirections = 0;
+                    for (var dirI = 0; dirI < (uint)BoardMap.EDirection.COUNT; ++dirI)
+                    {
+                        BoardMap.EDirection direction = (BoardMap.EDirection)dirI;
+                        bool validDir = validDirection[direction] = boardMap.IsClearDirection(currentPos, direction);
+                        if(validDir)
+                        {
+                            ++possibleDirections;
+                        }
+                    }
+
+                    if (possibleDirections > 0)
+                    {
+                        BoardMap.EDirection randomValidDirection = GetRandomValidDirection(validDirection, possibleDirections);
+
+                        // Update current position
+                        currentPos = boardMap.GetNextTilePosition(currentPos, randomValidDirection);
+
+                        // assign road to selected tiles
+                        boardMap.SetTile(currentPos, BoardMap.ETileType.Road);
+                    }
+                    else
                     {
                         generationOk = false;
                         Console.Error.WriteLine("Generation Failed");
                         break; //impossible to continue
                     }
-
-                    //Generate random direction
-                    int selectedDirection = Globals.RandomNumberGenerator.Next(0, possibleDirections);
-                    ++selectedDirection;  // ranges [1, possibleDirections]
-                    int directionIndex;
-
-                    // count "selectedDirection" good directions
-                    for (directionIndex = 0; directionIndex < 4; ++directionIndex)
-                    {
-                        if (directionOk[directionIndex])
-                        {
-                            --selectedDirection;
-                        }
-
-                        if (selectedDirection == 0)
-                        {
-                            break;
-                        }
-                    }
-                    // Update current position
-                    currentPosX = nextPoint[directionIndex].X;
-                    currentPosY = nextPoint[directionIndex].Y;
-
-                    // assign road to selected tiles
-                    boardMap.Tiles[currentPosX, currentPosY] = BoardMap.ETileType.Road;
                 }
 
                 ++currentAttempt;
 
             } while (!generationOk && currentAttempt < _settings.MaxGenerationAttempts);
 
+
             return boardMap;
+        }
+
+
+        private BoardMap.EDirection GetRandomValidDirection(Dictionary<BoardMap.EDirection,bool> validDirectionMap, int validDirections)
+        {
+            int selectedDir = 0;
+
+            if (validDirections > 0)
+            {
+                //Generate random direction
+                int directionsRemains = Globals.RandomNumberGenerator.Next(0, validDirections);
+                ++directionsRemains;  // ranges [1, validDirections]
+
+                // count "selectedDirection" good directions
+                for (selectedDir = 0; selectedDir < (uint)BoardMap.EDirection.COUNT; ++selectedDir)
+                {
+                    if (validDirectionMap[(BoardMap.EDirection)selectedDir])
+                    {
+                        --directionsRemains;
+                    }
+
+                    if (directionsRemains == 0)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return (BoardMap.EDirection)selectedDir;
         }
 
 
