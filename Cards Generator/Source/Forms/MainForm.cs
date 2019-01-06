@@ -31,5 +31,10 @@ namespace Cards_Generator
             ControllerState.FireAction("ToMapGenerator", "");
 
         }
+
+        private void lblCredits_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ControllerState.FireAction("ToCredit", "");
+        }
     }
 }

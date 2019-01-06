@@ -21,7 +21,8 @@
       "Class": "Cards_Generator.MainMenuState",
       "Transitions": {
         "ToGenerator": "GenerateRandomCardState",
-        "ToMapGenerator": "GenerateMapState"
+        "ToMapGenerator": "GenerateMapState",
+		"ToCredit": "CreditState"
       }
     },
     {
@@ -37,6 +38,13 @@
       "Transitions": {
         "Back": "MainMenuState"
       }
-    }
+    },
+	{
+	  "Name": "CreditState",
+	  "Class": "Cards_Generator.CreditState",
+	  "Transitions":{
+	  	  "Back": "MainMenuState"
+	  }
+	}
   ]
 }
