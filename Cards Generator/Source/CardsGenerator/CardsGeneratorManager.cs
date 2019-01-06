@@ -12,6 +12,8 @@ namespace Cards_Generator
     public struct CardsGeneratorSettings
     {
         public Dictionary<ECardRarity, uint> EnchantmentsNumberPerRarity;
+        public uint MaxGenerationAttempts;
+        public uint RoadsTilesToPlace;
     }
 
 
@@ -147,7 +149,6 @@ namespace Cards_Generator
 
             BoardMap boardMap = new BoardMap(SizeX, SizeY);
 
-            const int maxAttempts = 1000;   //#TODO put it in settings
             int currentAttempt = 0;
 
             bool generationOk;
@@ -185,10 +186,9 @@ namespace Cards_Generator
 
 
                 //Place a random road
-                const int roadsToPlace = 250; // #TODO: put it in the settings
                 int currentPosX = startPointX;
                 int currentPosY = startPointY;
-                for (var i = 0; i < roadsToPlace; ++i)
+                for (var i = 0; i < _settings.RoadsTilesToPlace; ++i)
                 {
                     //Calculate possible direction
                     bool[] directionOk = new bool[4];   // order = up, right, down, left
@@ -237,7 +237,7 @@ namespace Cards_Generator
 
                 ++currentAttempt;
 
-            } while (!generationOk && currentAttempt < maxAttempts);
+            } while (!generationOk && currentAttempt < _settings.MaxGenerationAttempts);
 
             return boardMap;
         }
