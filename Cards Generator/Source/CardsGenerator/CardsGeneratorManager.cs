@@ -12,8 +12,11 @@ namespace Cards_Generator
     public struct CardsGeneratorSettings
     {
         public Dictionary<ECardRarity, uint> EnchantmentsNumberPerRarity;
+        public int MapSizeX;
+        public int MapSizeY;
         public uint MaxGenerationAttempts;
         public uint RoadsTilesToPlace;
+        public uint MinRoadsDistance;
         public uint MinNumberOfRoadsForks;
         public uint MaxNumberOfRoadsForks;
         public uint MinNumberOfMonsters;
@@ -151,10 +154,10 @@ namespace Cards_Generator
             return (CardClass)(Convert.ChangeType(generatedCard, typeof(CardClass)));
         }
 
-        public BoardMap GenerateMap(int SizeX, int SizeY)
+        public BoardMap GenerateMap()
         {
 
-            BoardMap boardMap = new BoardMap(SizeX, SizeY);
+            BoardMap boardMap = new BoardMap(_settings.MapSizeX, _settings.MapSizeY);
 
             int currentAttempt = 0;
 
@@ -194,6 +197,9 @@ namespace Cards_Generator
                     if (possibleDirections > 0)
                     {
                         BoardMap.EDirection randomValidDirection = GetRandomValidDirection(validDirection, possibleDirections);
+
+                        // Set this position neighbors unusable
+                        boardMap.setNeighborsUnusableIfEmpty(currentPos);
 
                         // Update current position
                         currentPos = boardMap.GetNextTilePosition(currentPos, randomValidDirection);
@@ -257,10 +263,6 @@ namespace Cards_Generator
         private List<CreatureCard> _creatureCards;
 
         private List<EquipmentCard> _equipmentCards;
-
-        private const int _MinTileValue = 0;
-
-        private const int _MaxTileValue = 5;
 
     }
 }

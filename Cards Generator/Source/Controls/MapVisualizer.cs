@@ -48,8 +48,11 @@ namespace Cards_Generator
 
                         Rectangle rectangle = new Rectangle(posX, posY, rectSizeX, rectSizeY);
                         BoardMap.ETileType tileType = boardMap.Tiles[i, j];
-                        Brush currentBrush = new SolidBrush(Globals.UISettings.TilesDebugBrushColors[tileType]);
-                        graphics.FillRectangle(currentBrush, rectangle);
+                        if (Globals.UISettings.TilesDebugBrushColors.ContainsKey(tileType))
+                        {
+                            Brush currentBrush = new SolidBrush(Globals.UISettings.TilesDebugBrushColors[tileType]);
+                            graphics.FillRectangle(currentBrush, rectangle);
+                        }
                     }
                 }
             }

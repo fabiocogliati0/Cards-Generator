@@ -42,7 +42,7 @@ namespace Cards_Generator
 
         private void GenerateMap()
         {
-            BoardMap generatedMap = CardsGeneratorManager.GetInstance().GenerateMap(_TilesSizeX, _TilesSizeY);
+            BoardMap generatedMap = CardsGeneratorManager.GetInstance().GenerateMap();
             _form.SetMap(generatedMap);
         }
 
@@ -52,11 +52,7 @@ namespace Cards_Generator
             _form.Dispose();
         }
 
-        private const int _TilesSizeX = 50;
 
-        private const int _TilesSizeY = 50;
-
- 
         private GenerateMapForm _form;
     }
 }

@@ -27,11 +27,13 @@ namespace Cards_Generator
 
         public enum ETileType
         {
+            None,
             Empty,
             Road,
             StartPoint,
             Shop,
             Monster,
+            Unusable,
             COUNT
         }
 
@@ -83,9 +85,31 @@ namespace Cards_Generator
 
         public void SetTile(BoardPoint position, ETileType tileType)
         {
-            if(position.X >= 0 && position.X < SizeX && position.Y >= 0 && position.Y < SizeY)
+            _tiles[position.X, position.Y] = tileType;
+        }
+
+        public void SetTileChecked(BoardPoint position, ETileType tileType)
+        {
+            if(IsValidTile(position))
             {
-                _tiles[position.X, position.Y] = tileType;
+                SetTile(position, tileType);
+            }
+        }
+
+        public ETileType GeTile(BoardPoint position)
+        {
+            return _tiles[position.X, position.Y];
+        }
+
+        public ETileType GetTileChecked(BoardPoint position)
+        {
+            if(IsValidTile(position))
+            {
+                return GeTile(position);
+            }
+            else
+            {
+                return ETileType.None;
             }
         }
 
@@ -105,26 +129,26 @@ namespace Cards_Generator
             return position.X >= 0 && position.X < SizeX && position.Y >= 0 && position.Y < SizeY;
         }
 
-        public bool IsClearDirection(BoardPoint currentPos, EDirection direction)
+        public bool IsClearDirection(BoardPoint position, EDirection direction)
         {
 
             bool isClear = false;
 
-            if (IsValidTile(currentPos))
+            if (IsValidTile(position))
             {
                 switch (direction)
                 {
                     case EDirection.Up:
-                        isClear = currentPos.Y - 1 >= 0 && _tiles[currentPos.X, currentPos.Y - 1] == BoardMap.ETileType.Empty;
+                        isClear = position.Y - 1 >= 0 && _tiles[position.X, position.Y - 1] == BoardMap.ETileType.Empty;
                         break;
                     case EDirection.Right:
-                        isClear = currentPos.X + 1 < SizeX && _tiles[currentPos.X + 1, currentPos.Y] == BoardMap.ETileType.Empty;
+                        isClear = position.X + 1 < SizeX && _tiles[position.X + 1, position.Y] == BoardMap.ETileType.Empty;
                         break;
                     case EDirection.Down:
-                        isClear = currentPos.Y + 1 < SizeY && _tiles[currentPos.X, currentPos.Y + 1] == BoardMap.ETileType.Empty;
+                        isClear = position.Y + 1 < SizeY && _tiles[position.X, position.Y + 1] == BoardMap.ETileType.Empty;
                         break;
                     case EDirection.Left:
-                        isClear = currentPos.X - 1 >= 0 && _tiles[currentPos.X - 1, currentPos.Y] == BoardMap.ETileType.Empty;
+                        isClear = position.X - 1 >= 0 && _tiles[position.X - 1, position.Y] == BoardMap.ETileType.Empty;
                         break;
                 }
             }
@@ -153,6 +177,23 @@ namespace Cards_Generator
             }
             
             return nextPosition;
+        }
+
+        public void setNeighborsUnusableIfEmpty(BoardPoint currentPos)
+        {
+            for (var dirI = 0; dirI < (uint)BoardMap.EDirection.COUNT; ++dirI)
+            {
+               BoardPoint NextPoint = GetNextTilePosition(currentPos, (EDirection)dirI);
+               if(GetTileChecked(NextPoint) == ETileType.Empty)
+               {
+                    SetTile(NextPoint, ETileType.Unusable);
+               }
+            }
+        }
+
+        public bool IsEdgePosition(BoardPoint position)
+        {
+            return position.X == 0 || position.X == SizeX - 1 || position.Y == 0 || position.Y == SizeY - 1;
         }
 
         public BoardPoint GetRandomEdgePosition()
@@ -185,5 +226,6 @@ namespace Cards_Generator
 
 
         private ETileType[,] _tiles;
+
     }
 }

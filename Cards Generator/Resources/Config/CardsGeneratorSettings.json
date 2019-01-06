@@ -4,6 +4,8 @@
     "Magic": 2,
     "Rare": 5
   },
+  "MapSizeX": 50,
+  "MapSizeY": 50,
   "MaxGenerationAttempts": 1000,
-  "RoadsTilesToPlace" : 250
+  "RoadsTilesToPlace": 250
 }

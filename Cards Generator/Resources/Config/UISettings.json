@@ -4,6 +4,7 @@
     "Road": "Brown",
     "StartPoint": "Blue",
     "Shop": "Yellow",
-    "Monster": "Red"
+    "Monster": "Red",
+    "Unusable": "Green"
   }
 }
